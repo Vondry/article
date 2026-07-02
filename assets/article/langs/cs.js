@@ -3,10 +3,17 @@
  *
  * Loaded by Bolt\Article\TwigExtension::articleLangInclude before the plugin
  * scripts. Keys left out fall back to English (see en.js) automatically.
+ *
+ * Structure mirrors en.js: the core editor UI first, then one clearly labelled
+ * group per plugin. Plugin strings are NOT merged into non-English locales at
+ * runtime, so every plugin group must be carried here to be shown in Czech.
  */
 (function (AE) {
     AE.lang = AE.lang || {};
     AE.lang['cs'] = {
+        // ─────────────────────────────────────────────────────────────
+        // Core editor UI
+        // ─────────────────────────────────────────────────────────────
         accessibility: { 'help-label': 'Textový editor' },
         editor: { title: 'Článek', multiple: 'Vícenásobné' },
         placeholders: {
@@ -89,6 +96,8 @@
             image: 'Obrázek', list: 'Seznam', delete: 'Smazat', duplicate: 'Duplikovat',
             sort: 'Seřadit', edit: 'Upravit', inline: 'Vložené'
         },
+        // Popisky bloků. Poslední dva přidávají pluginy `math` a `variable`;
+        // ostatní jsou základní typy bloků.
         blocks: {
             noneditable: 'Needitovatelné', paragraph: 'Odstavec', heading: 'Nadpis',
             image: 'Obrázek', figcaption: 'Popisek obrázku', embed: 'Vložený obsah',
@@ -96,25 +105,71 @@
             snippet: 'Úryvek', column: 'Sloupec', grid: 'Mřížka', list: 'Seznam',
             table: 'Tabulka', layer: 'Vrstva', row: 'Řádek', text: 'Text', cell: 'Buňka',
             dlist: 'Definiční seznam', address: 'Adresa', form: 'Formulář', card: 'Karta',
-            tags: 'Štítky'
+            tags: 'Štítky', math: 'Matematický výraz', variable: 'Proměnná'
         },
+
+        // ─────────────────────────────────────────────────────────────
+        // Plugin UI — jedna skupina na plugin (abecedně)
+        // ─────────────────────────────────────────────────────────────
+        // blockcode plugin
         blockcode: { save: 'Uložit', cancel: 'Zrušit', 'edit-code': 'Upravit kód' },
+        // buttonlink plugin
         buttonlink: { button: 'Tlačítko' },
+        // carousel plugin
+        carousel: { carousel: 'Karusel', save: 'Uložit', cancel: 'Zrušit', insert: 'Vložit' },
+        // clips plugin
+        clips: { clips: 'Klipy' },
+        // counter plugin
+        counter: { words: 'slov', chars: 'znaků' },
+        // filelink plugin
+        filelink: {
+            file: 'Soubor', upload: 'Nahrát', title: 'Název', choose: 'Vybrat',
+            placeholder: 'Přetáhněte pro nahrání souboru<br>nebo klikněte pro výběr'
+        },
+        // handle plugin
+        handle: { handle: 'Úchyt' },
+        // icons plugin
+        icons: { icons: 'Ikony' },
+        // imageposition plugin
+        imageposition: { 'image-position': 'Pozice obrázku' },
+        // imageresize plugin
+        imageresize: { 'image-resize': 'Změna velikosti obrázku' },
+        // inlineformat plugin
         inlineformat: {
             'inline-format': 'Vložené formátování', underline: 'Podtržené',
             superscript: 'Horní index', subscript: 'Dolní index', mark: 'Zvýraznění',
             code: 'Kód', shortcut: 'Zkratka', 'remove-format': 'Odebrat formátování'
         },
+        // makebutton plugin
+        makebutton: {
+            'make-a-button': 'Vytvořit tlačítko', 'remove-button': 'Odebrat tlačítko',
+            button: 'Tlačítko'
+        },
+        // math plugin
+        math: {
+            math: 'Matematický výraz', label: 'Zadejte výraz', add: 'Přidat',
+            save: 'Uložit', cancel: 'Zrušit'
+        },
+        // print plugin
+        print: { print: 'Tisk' },
+        // removeformat plugin
+        removeformat: { removeformat: 'Odebrat formátování' },
+        // selector plugin
+        selector: { selector: 'Výběr', save: 'Uložit', cancel: 'Zrušit' },
+        // slideshow plugin
+        slideshow: { slideshow: 'Prezentace', save: 'Uložit', cancel: 'Zrušit', insert: 'Vložit' },
+        // specialchars plugin
+        specialchars: { 'special-chars': 'Speciální znaky' },
+        // style plugin
+        style: { style: 'Styl', 'remove-style': 'Odebrat styl' },
+        // tags plugin
         tags: {
             tags: 'Štítky', add: 'Přidat', save: 'Uložit', cancel: 'Zrušit',
             label: 'Přidejte štítky oddělené čárkou'
         },
-        imageposition: { 'image-position': 'Pozice obrázku' },
-        filelink: {
-            file: 'Soubor', upload: 'Nahrát', title: 'Název', choose: 'Vybrat',
-            placeholder: 'Přetáhněte pro nahrání souboru<br>nebo klikněte pro výběr'
-        },
-        removeformat: { removeformat: 'Odebrat formátování' },
-        imageresize: { 'image-resize': 'Změna velikosti obrázku' }
+        // textdirection plugin
+        textdirection: { title: 'RTL-LTR', ltr: 'Zleva doprava', rtl: 'Zprava doleva' },
+        // variable plugin
+        variable: { variable: 'Proměnná' }
     };
 })(ArticleEditor);

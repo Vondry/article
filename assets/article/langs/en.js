@@ -6,10 +6,18 @@
  * each plugin's own `translations.en` deep-merges on top of it. Copy this file to
  * `<code>.js` and translate the values to add a language; keys left out fall back
  * to English automatically.
+ *
+ * The file is split into the core editor UI and, below it, one clearly labelled
+ * group per plugin so related strings stay together — mirror this grouping when
+ * translating so every plugin's UI is covered (plugin strings are NOT merged into
+ * non-English locales at runtime; each locale must carry them itself).
  */
 (function (AE) {
     AE.lang = AE.lang || {};
     AE.lang['en'] = {
+        // ─────────────────────────────────────────────────────────────
+        // Core editor UI
+        // ─────────────────────────────────────────────────────────────
         accessibility: { 'help-label': 'Rich text editor' },
         editor: { title: 'Article', multiple: 'Multiple' },
         placeholders: {
@@ -92,6 +100,8 @@
             image: 'Image', list: 'List', delete: 'Delete', duplicate: 'Duplicate',
             sort: 'Sort', edit: 'Edit', inline: 'Inline'
         },
+        // Block labels. The last two are contributed by the `math` and `variable`
+        // plugins; the rest are core block types.
         blocks: {
             noneditable: 'Noneditable', paragraph: 'Paragraph', heading: 'Heading',
             image: 'Image', figcaption: 'Figcaption', embed: 'Embed',
@@ -99,25 +109,71 @@
             snippet: 'Snippet', column: 'Column', grid: 'Grid', list: 'List',
             table: 'Table', layer: 'Layer', row: 'Row', text: 'Text', cell: 'Cell',
             dlist: 'Definition List', address: 'Address', form: 'Form', card: 'Card',
-            tags: 'Tags'
+            tags: 'Tags', math: 'Math', variable: 'Variable'
         },
+
+        // ─────────────────────────────────────────────────────────────
+        // Plugin UI — one group per plugin (alphabetical)
+        // ─────────────────────────────────────────────────────────────
+        // blockcode plugin
         blockcode: { save: 'Save', cancel: 'Cancel', 'edit-code': 'Edit Code' },
+        // buttonlink plugin
         buttonlink: { button: 'Button' },
+        // carousel plugin
+        carousel: { carousel: 'Carousel', save: 'Save', cancel: 'Cancel', insert: 'Insert' },
+        // clips plugin
+        clips: { clips: 'Clips' },
+        // counter plugin
+        counter: { words: 'words', chars: 'chars' },
+        // filelink plugin
+        filelink: {
+            file: 'File', upload: 'Upload', title: 'Title', choose: 'Choose',
+            placeholder: 'Drag to upload a file<br>or click to select'
+        },
+        // handle plugin
+        handle: { handle: 'Handle' },
+        // icons plugin
+        icons: { icons: 'Icons' },
+        // imageposition plugin
+        imageposition: { 'image-position': 'Image position' },
+        // imageresize plugin
+        imageresize: { 'image-resize': 'Image resize' },
+        // inlineformat plugin
         inlineformat: {
             'inline-format': 'Inline Format', underline: 'Underline',
             superscript: 'Superscript', subscript: 'Subscript', mark: 'Mark',
             code: 'Code', shortcut: 'Shortcut', 'remove-format': 'Remove Format'
         },
+        // makebutton plugin
+        makebutton: {
+            'make-a-button': 'Make a Button', 'remove-button': 'Remove button',
+            button: 'Button'
+        },
+        // math plugin
+        math: {
+            math: 'Math', label: 'Type an expression', add: 'Add',
+            save: 'Save', cancel: 'Cancel'
+        },
+        // print plugin
+        print: { print: 'Print' },
+        // removeformat plugin
+        removeformat: { removeformat: 'Remove Format' },
+        // selector plugin
+        selector: { selector: 'Selector', save: 'Save', cancel: 'Cancel' },
+        // slideshow plugin
+        slideshow: { slideshow: 'Slideshow', save: 'Save', cancel: 'Cancel', insert: 'Insert' },
+        // specialchars plugin
+        specialchars: { 'special-chars': 'Special Characters' },
+        // style plugin
+        style: { style: 'Style', 'remove-style': 'Remove Style' },
+        // tags plugin
         tags: {
             tags: 'Tags', add: 'Add', save: 'Save', cancel: 'Cancel',
             label: 'Add comma-separated tags'
         },
-        imageposition: { 'image-position': 'Image position' },
-        filelink: {
-            file: 'File', upload: 'Upload', title: 'Title', choose: 'Choose',
-            placeholder: 'Drag to upload a file<br>or click to select'
-        },
-        removeformat: { removeformat: 'Remove Format' },
-        imageresize: { 'image-resize': 'Image resize' }
+        // textdirection plugin
+        textdirection: { title: 'RTL-LTR', ltr: 'Left to Right', rtl: 'Right to Left' },
+        // variable plugin
+        variable: { variable: 'Variable' }
     };
 })(ArticleEditor);
