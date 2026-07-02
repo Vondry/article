@@ -15,6 +15,11 @@ services:
       $projectDir: '%kernel.project_dir%'
       $publicFolder: '%bolt.public_folder%'
 
+  Bolt\Article\ArticleConfig:
+    arguments:
+      $projectDir: '%kernel.project_dir%'
+      $publicFolder: '%bolt.public_folder%'
+
 ### Map entities
 doctrine:
   orm:

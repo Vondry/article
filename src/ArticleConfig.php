@@ -35,7 +35,9 @@ class ArticleConfig
         private readonly Query $query,
         private readonly CacheInterface $cache,
         private readonly Security $security,
-        private readonly RequestStack $requestStack
+        private readonly RequestStack $requestStack,
+        private readonly string $projectDir,
+        private readonly string $publicFolder
     ) {
     }
 
@@ -229,14 +231,32 @@ class ArticleConfig
     /**
      * The locale to use for the editor UI. Uses the current request locale, which
      * Bolt resolves per user in the backend (LocaleSubscriber sets it from the
-     * user's `_backend_locale`). Falls back to English when there is no request
-     * (e.g. CLI / cache warmup).
+     * user's `_backend_locale`).
+     *
+     * Falls back to English when there is no request (e.g. CLI / cache warmup) or
+     * when we ship no matching langs/<code>.js. The fallback is essential: the
+     * editor does NOT fall back on its own — set `editor.lang` to a locale whose
+     * language table was never loaded and every toolbar label resolves to
+     * `undefined`, rendering an empty editor UI. Keeping this in sync with the file
+     * that article_includes() actually loads guarantees the two never disagree.
      */
     private function resolveLocale(): string
     {
         $request = $this->requestStack->getCurrentRequest();
+        $locale = $request?->getLocale() ?: 'en';
 
-        return $request?->getLocale() ?: 'en';
+        return $this->hasLangFile($locale) ? $locale : 'en';
+    }
+
+    private function hasLangFile(string $locale): bool
+    {
+        if ($locale === '') {
+            return false;
+        }
+
+        $path = sprintf('%s/%s/assets/article/langs/%s.js', $this->projectDir, $this->publicFolder, $locale);
+
+        return is_file($path);
     }
 
     private function getExtension(): Extension
