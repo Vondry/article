@@ -1,9 +1,9 @@
 # Settings for Bolt Article
 
-# All options: blockcode, buttonlink, carousel, counter, definedlinks, filelink,
-# handle, icons, imageposition, inlineformat, makebutton, print, reorder,
-# selector, specialchars, style, tags, textdirection, underline, variable,
-# removeformat, imageresize
+# All options: blockcode, buttonlink, carousel, clips, counter, definedlinks,
+# filelink, handle, icons, imageposition, imageresize, inlineformat, makebutton,
+# math, print, removeformat, reorder, selector, slideshow, specialchars, style,
+# tags, textdirection, underline, variable
 default:
   plugins: [ blockcode, buttonlink, definedlinks, inlineformat, reorder, tags, underline, imageposition, filelink, removeformat, imageresize ]
   source: true
