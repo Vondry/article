@@ -101,6 +101,22 @@ default:
     autolink: false
 ```
 
+## Language / locale
+
+The editor UI language always follows the current Bolt **backend locale** — each
+user sees the editor in the language they've selected for the Bolt admin, with no
+configuration. The matching Article language file
+(`assets/article/langs/<code>.js`) is loaded automatically; English and Czech ship
+with the extension, and locales without a translation file fall back to English.
+
+This is driven solely by the user's Bolt locale and is not overridable via
+`editor.lang`.
+
+To add a language, copy `assets/article/langs/en.js` to `assets/article/langs/<code>.js`
+and translate the values (any key you leave out falls back to English). The file is
+loaded before the plugin scripts, so each plugin's own English strings deep-merge on
+top and remain available as fallbacks.
+
 ## Adding custom plugins
 
 If you've written your own block or plugin for Article according to the

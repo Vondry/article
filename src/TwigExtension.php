@@ -12,7 +12,9 @@ use Twig\TwigFunction;
 class TwigExtension extends AbstractExtension
 {
     public function __construct(
-        private readonly ArticleConfig $articleConfig
+        private readonly ArticleConfig $articleConfig,
+        private readonly string $projectDir,
+        private readonly string $publicFolder,
     ) {
     }
 
@@ -40,7 +42,14 @@ class TwigExtension extends AbstractExtension
         $used = $this->articleConfig->getConfig()['plugins'];
         $plugins = collect($this->articleConfig->getPlugins());
 
-        $output = '';
+        // The UI language file matching the resolved locale (see
+        // ArticleConfig::resolveLocale) is emitted FIRST, before the plugin
+        // scripts below. Each plugin registers its own `translations.en`, which
+        // deep-merges onto `ArticleEditor.lang.<code>`; loading the base language
+        // first lets those merge in so the English fallback stays complete for
+        // every enabled plugin. English is included on purpose (langs/en.js is the
+        // canonical, editable English set). Unsupported locales are skipped.
+        $output = $this->articleLangInclude();
 
         foreach ($used as $item) {
             if (! is_string($item) || ! $plugins->get($item)) {
@@ -59,5 +68,29 @@ class TwigExtension extends AbstractExtension
         }
 
         return $output;
+    }
+
+    /**
+     * A `<script>` tag for the Article UI language file matching the configured
+     * locale, or an empty string when we ship no translation for that locale (it
+     * then falls back to the editor's built-in English). English is included on
+     * purpose: langs/en.js is the canonical, editable English set.
+     */
+    private function articleLangInclude(): string
+    {
+        $lang = $this->articleConfig->getConfig()['editor']['lang'] ?? 'en';
+
+        if (! is_string($lang) || $lang === '') {
+            return '';
+        }
+
+        $relative = sprintf('/assets/article/langs/%s.js', $lang);
+        $absolute = $this->projectDir . '/' . $this->publicFolder . $relative;
+
+        if (! is_file($absolute)) {
+            return '';
+        }
+
+        return sprintf('<script src="%s"></script>', $relative) . "\n";
     }
 }
