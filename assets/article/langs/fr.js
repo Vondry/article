@@ -15,12 +15,12 @@
         // Core editor UI
         // ─────────────────────────────────────────────────────────────
         accessibility: { 'help-label': 'Éditeur de texte enrichi' },
-        editor: { title: 'Article', multiple: 'Multiple' },
+        editor: { title: 'Article', multiple: 'Sélection multiple' },
         placeholders: {
             figcaption: 'Saisir une légende (facultatif)',
             text: 'Saisissez quelque chose...',
             code: 'Modifiez pour ajouter du code...',
-            layer: 'Appuyez sur Entrée pour ajouter un nouveau texte...'
+            layer: 'Appuyez sur Entrée pour ajouter du texte...'
         },
         popup: {
             link: 'Lien', add: 'Ajouter', grid: 'Grille', back: 'Retour',
@@ -96,16 +96,16 @@
             image: 'Image', list: 'Liste', delete: 'Supprimer', duplicate: 'Dupliquer',
             sort: 'Trier', edit: 'Modifier', inline: 'En ligne'
         },
-        // Block labels. The last two are contributed by the `math` and `variable`
-        // plugins; the rest are core block types.
+        // Block labels. The last four are contributed by the `bulma-content`, `tags`,
+        // `math` and `variable` plugins; the rest are core block types.
         blocks: {
             noneditable: 'Non modifiable', paragraph: 'Paragraphe', heading: 'Titre',
             image: 'Image', figcaption: 'Légende d’image', embed: 'Intégration',
-            line: 'Ligne', code: 'Code', quote: 'Citation', quoteitem: 'Paragraphe',
+            line: 'Ligne horizontale', code: 'Code', quote: 'Citation', quoteitem: 'Paragraphe',
             snippet: 'Extrait', column: 'Colonne', grid: 'Grille', list: 'Liste',
             table: 'Tableau', layer: 'Calque', row: 'Ligne', text: 'Texte', cell: 'Cellule',
             dlist: 'Liste de définitions', address: 'Adresse', form: 'Formulaire', card: 'Carte',
-            tags: 'Étiquettes', math: 'Mathématiques', variable: 'Variable'
+            content: 'Contenu', tags: 'Étiquettes', math: 'Formule', variable: 'Variable'
         },
 
         // ─────────────────────────────────────────────────────────────
@@ -127,7 +127,7 @@
             placeholder: 'Glissez pour téléverser un fichier<br>ou cliquez pour sélectionner'
         },
         // handle plugin
-        handle: { handle: 'Poignée' },
+        handle: { handle: 'Handle' },
         // icons plugin
         icons: { icons: 'Icônes' },
         // imageposition plugin
@@ -147,7 +147,7 @@
         },
         // math plugin
         math: {
-            math: 'Mathématiques', label: 'Saisir une expression', add: 'Ajouter',
+            math: 'Formule', label: 'Saisir une expression', add: 'Ajouter',
             save: 'Enregistrer', cancel: 'Annuler'
         },
         // print plugin

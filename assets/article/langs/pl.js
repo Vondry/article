@@ -15,12 +15,12 @@
         // Core editor UI
         // ─────────────────────────────────────────────────────────────
         accessibility: { 'help-label': 'Edytor tekstu sformatowanego' },
-        editor: { title: 'Artykuł', multiple: 'Wielokrotne' },
+        editor: { title: 'Artykuł', multiple: 'Wiele bloków' },
         placeholders: {
             figcaption: 'Wpisz podpis (opcjonalnie)',
             text: 'Wpisz coś...',
             code: 'Edytuj, aby dodać kod...',
-            layer: 'Naciśnij Enter, aby dodać nowy tekst...'
+            layer: 'Naciśnij Enter, aby dodać tekst...'
         },
         popup: {
             link: 'Link', add: 'Dodaj', grid: 'Siatka', back: 'Wstecz',
@@ -55,10 +55,10 @@
         },
         table: {
             width: 'Szerokość', nowrap: 'Bez zawijania', save: 'Zapisz', cancel: 'Anuluj',
-            'table-cell': 'Komórka tabeli', 'add-head': 'Dodaj nagłówek',
-            'remove-head': 'Usuń nagłówek', 'add-row-below': 'Dodaj wiersz poniżej',
+            'table-cell': 'Komórka tabeli', 'add-head': 'Dodaj wiersz nagłówka',
+            'remove-head': 'Usuń wiersz nagłówka', 'add-row-below': 'Dodaj wiersz poniżej',
             'add-row-above': 'Dodaj wiersz powyżej', 'remove-row': 'Usuń wiersz',
-            'add-column-after': 'Dodaj kolumnę po', 'add-column-before': 'Dodaj kolumnę przed',
+            'add-column-after': 'Dodaj kolumnę po prawej', 'add-column-before': 'Dodaj kolumnę po lewej',
             'remove-column': 'Usuń kolumnę'
         },
         image: {
@@ -87,7 +87,7 @@
             'mobile-view': 'Widok mobilny', cancel: 'Anuluj', insert: 'Wstaw',
             unlink: 'Usuń link', save: 'Zapisz', add: 'Dodaj',
             'transform-to-text': 'Przekształć na tekst', align: 'Wyrównanie', valign: 'Wyrównanie pionowe',
-            outset: 'Wysunięcie', indent: 'Zwiększ wcięcie', outdent: 'Zmniejsz wcięcie', head: 'Nagłówek',
+            outset: 'Wysunięcie', indent: 'Zwiększ wcięcie', outdent: 'Zmniejsz wcięcie', head: 'Wiersz nagłówka',
             row: 'Wiersz', cell: 'Komórka', html: 'HTML', templates: 'Szablony',
             shortcuts: 'Skróty klawiaturowe', format: 'Format', bold: 'Pogrubienie', italic: 'Kursywa',
             deleted: 'Przekreślenie', underline: 'Podkreślenie', table: 'Tabela', link: 'Link',
@@ -96,8 +96,8 @@
             image: 'Obraz', list: 'Lista', delete: 'Usuń', duplicate: 'Duplikuj',
             sort: 'Sortuj', edit: 'Edytuj', inline: 'W tekście'
         },
-        // Block labels. The last two are contributed by the `math` and `variable`
-        // plugins; the rest are core block types.
+        // Block labels. The last four are contributed by the `bulma-content`, `tags`,
+        // `math` and `variable` plugins; the rest are core block types.
         blocks: {
             noneditable: 'Nieedytowalne', paragraph: 'Akapit', heading: 'Nagłówek',
             image: 'Obraz', figcaption: 'Podpis obrazu', embed: 'Osadzenie',
@@ -105,7 +105,7 @@
             snippet: 'Fragment', column: 'Kolumna', grid: 'Siatka', list: 'Lista',
             table: 'Tabela', layer: 'Warstwa', row: 'Wiersz', text: 'Tekst', cell: 'Komórka',
             dlist: 'Lista definicji', address: 'Adres', form: 'Formularz', card: 'Karta',
-            tags: 'Tagi', math: 'Matematyka', variable: 'Zmienna'
+            content: 'Treść', tags: 'Tagi', math: 'Wzór', variable: 'Zmienna'
         },
 
         // ─────────────────────────────────────────────────────────────
@@ -127,7 +127,7 @@
             placeholder: 'Przeciągnij, aby przesłać plik<br>lub kliknij, aby wybrać'
         },
         // handle plugin
-        handle: { handle: 'Uchwyt' },
+        handle: { handle: 'Handle' },
         // icons plugin
         icons: { icons: 'Ikony' },
         // imageposition plugin
@@ -147,7 +147,7 @@
         },
         // math plugin
         math: {
-            math: 'Matematyka', label: 'Wpisz wyrażenie', add: 'Dodaj',
+            math: 'Wzór', label: 'Wpisz wyrażenie', add: 'Dodaj',
             save: 'Zapisz', cancel: 'Anuluj'
         },
         // print plugin

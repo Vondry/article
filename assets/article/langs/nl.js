@@ -15,7 +15,7 @@
         // Core editor UI
         // ─────────────────────────────────────────────────────────────
         accessibility: { 'help-label': 'Rich text-editor' },
-        editor: { title: 'Artikel', multiple: 'Meerdere' },
+        editor: { title: 'Artikel', multiple: 'Meerdere blokken' },
         placeholders: {
             figcaption: 'Voer bijschrift in (optioneel)',
             text: 'Typ iets...',
@@ -55,8 +55,8 @@
         },
         table: {
             width: 'Breedte', nowrap: 'Niet afbreken', save: 'Opslaan', cancel: 'Annuleren',
-            'table-cell': 'Tabelcel', 'add-head': 'Kop toevoegen',
-            'remove-head': 'Kop verwijderen', 'add-row-below': 'Rij onder toevoegen',
+            'table-cell': 'Tabelcel', 'add-head': 'Koprij toevoegen',
+            'remove-head': 'Koprij verwijderen', 'add-row-below': 'Rij onder toevoegen',
             'add-row-above': 'Rij boven toevoegen', 'remove-row': 'Rij verwijderen',
             'add-column-after': 'Kolom rechts toevoegen', 'add-column-before': 'Kolom links toevoegen',
             'remove-column': 'Kolom verwijderen'
@@ -87,7 +87,7 @@
             'mobile-view': 'Mobiele weergave', cancel: 'Annuleren', insert: 'Invoegen',
             unlink: 'Link verwijderen', save: 'Opslaan', add: 'Toevoegen',
             'transform-to-text': 'Omzetten naar tekst', align: 'Uitlijning', valign: 'Verticale uitlijning',
-            outset: 'Uitstekend', indent: 'Inspringen', outdent: 'Inspringing verkleinen', head: 'Kop',
+            outset: 'Uitstekend', indent: 'Inspringen', outdent: 'Inspringing verkleinen', head: 'Koprij',
             row: 'Rij', cell: 'Cel', html: 'HTML', templates: 'Sjablonen',
             shortcuts: 'Sneltoetsen', format: 'Opmaak', bold: 'Vet', italic: 'Cursief',
             deleted: 'Doorgehaald', underline: 'Onderstrepen', table: 'Tabel', link: 'Link',
@@ -96,8 +96,8 @@
             image: 'Afbeelding', list: 'Lijst', delete: 'Verwijderen', duplicate: 'Dupliceren',
             sort: 'Sorteren', edit: 'Bewerken', inline: 'Inline'
         },
-        // Block labels. The last two are contributed by the `math` and `variable`
-        // plugins; the rest are core block types.
+        // Block labels. The last four are contributed by the `bulma-content`, `tags`,
+        // `math` and `variable` plugins; the rest are core block types.
         blocks: {
             noneditable: 'Niet bewerkbaar', paragraph: 'Alinea', heading: 'Kop',
             image: 'Afbeelding', figcaption: 'Afbeeldingsbijschrift', embed: 'Insluiting',
@@ -105,7 +105,7 @@
             snippet: 'Fragment', column: 'Kolom', grid: 'Raster', list: 'Lijst',
             table: 'Tabel', layer: 'Laag', row: 'Rij', text: 'Tekst', cell: 'Cel',
             dlist: 'Definitielijst', address: 'Adres', form: 'Formulier', card: 'Kaart',
-            tags: 'Tags', math: 'Wiskunde', variable: 'Variabele'
+            content: 'Inhoud', tags: 'Tags', math: 'Formule', variable: 'Variabele'
         },
 
         // ─────────────────────────────────────────────────────────────
@@ -127,7 +127,7 @@
             placeholder: 'Sleep om een bestand te uploaden<br>of klik om te selecteren'
         },
         // handle plugin
-        handle: { handle: 'Handgreep' },
+        handle: { handle: 'Handle' },
         // icons plugin
         icons: { icons: 'Pictogrammen' },
         // imageposition plugin
@@ -147,7 +147,7 @@
         },
         // math plugin
         math: {
-            math: 'Wiskunde', label: 'Typ een expressie', add: 'Toevoegen',
+            math: 'Formule', label: 'Typ een expressie', add: 'Toevoegen',
             save: 'Opslaan', cancel: 'Annuleren'
         },
         // print plugin

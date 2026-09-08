@@ -15,12 +15,12 @@
         // Core editor UI
         // ─────────────────────────────────────────────────────────────
         accessibility: { 'help-label': 'Editor di testo avanzato' },
-        editor: { title: 'Articolo', multiple: 'Multiplo' },
+        editor: { title: 'Articolo', multiple: 'Selezione multipla' },
         placeholders: {
             figcaption: 'Inserisci didascalia (opzionale)',
             text: 'Scrivi qualcosa...',
             code: 'Modifica per aggiungere codice...',
-            layer: 'Premi Invio per aggiungere un nuovo testo...'
+            layer: 'Premi Invio per aggiungere del testo...'
         },
         popup: {
             link: 'Link', add: 'Aggiungi', grid: 'Griglia', back: 'Indietro',
@@ -96,8 +96,8 @@
             image: 'Immagine', list: 'Elenco', delete: 'Elimina', duplicate: 'Duplica',
             sort: 'Ordina', edit: 'Modifica', inline: 'In linea'
         },
-        // Block labels. The last two are contributed by the `math` and `variable`
-        // plugins; the rest are core block types.
+        // Block labels. The last four are contributed by the `bulma-content`, `tags`,
+        // `math` and `variable` plugins; the rest are core block types.
         blocks: {
             noneditable: 'Non modificabile', paragraph: 'Paragrafo', heading: 'Titolo',
             image: 'Immagine', figcaption: 'Didascalia immagine', embed: 'Incorporamento',
@@ -105,7 +105,7 @@
             snippet: 'Frammento', column: 'Colonna', grid: 'Griglia', list: 'Elenco',
             table: 'Tabella', layer: 'Livello', row: 'Riga', text: 'Testo', cell: 'Cella',
             dlist: 'Elenco di definizioni', address: 'Indirizzo', form: 'Modulo', card: 'Scheda',
-            tags: 'Tag', math: 'Matematica', variable: 'Variabile'
+            content: 'Contenuto', tags: 'Tag', math: 'Formula', variable: 'Variabile'
         },
 
         // ─────────────────────────────────────────────────────────────
@@ -127,7 +127,7 @@
             placeholder: 'Trascina per caricare un file<br>o fai clic per selezionare'
         },
         // handle plugin
-        handle: { handle: 'Maniglia' },
+        handle: { handle: 'Handle' },
         // icons plugin
         icons: { icons: 'Icone' },
         // imageposition plugin
@@ -147,7 +147,7 @@
         },
         // math plugin
         math: {
-            math: 'Matematica', label: 'Digita un’espressione', add: 'Aggiungi',
+            math: 'Formula', label: 'Digita un’espressione', add: 'Aggiungi',
             save: 'Salva', cancel: 'Annulla'
         },
         // print plugin

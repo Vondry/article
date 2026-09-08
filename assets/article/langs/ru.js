@@ -15,12 +15,12 @@
         // Core editor UI
         // ─────────────────────────────────────────────────────────────
         accessibility: { 'help-label': 'Редактор форматированного текста' },
-        editor: { title: 'Статья', multiple: 'Несколько' },
+        editor: { title: 'Статья', multiple: 'Несколько блоков' },
         placeholders: {
             figcaption: 'Введите подпись (необязательно)',
             text: 'Введите текст...',
             code: 'Отредактируйте, чтобы добавить код...',
-            layer: 'Нажмите Enter, чтобы добавить новый текст...'
+            layer: 'Нажмите Enter, чтобы добавить текст...'
         },
         popup: {
             link: 'Ссылка', add: 'Добавить', grid: 'Сетка', back: 'Назад',
@@ -30,7 +30,7 @@
             'meta-a': 'Выбрать текст в блоке', 'meta-shift-a': 'Выбрать все блоки',
             'meta-click': 'Выбрать несколько блоков', 'meta-z': 'Отменить', 'meta-shift-z': 'Повторить',
             'meta-shift-m': 'Удалить встроенное форматирование', 'meta-b': 'Жирный',
-            'meta-i': 'Курсив', 'meta-u': 'Подчеркнутый', 'meta-h': 'Надстрочный',
+            'meta-i': 'Курсив', 'meta-u': 'Подчёркнутый', 'meta-h': 'Надстрочный',
             'meta-l': 'Подстрочный', 'meta-k': 'Ссылка', 'meta-alt-0': 'Обычный текст',
             'meta-alt-1': 'Заголовок 1', 'meta-alt-2': 'Заголовок 2', 'meta-alt-3': 'Заголовок 3',
             'meta-alt-4': 'Заголовок 4', 'meta-alt-5': 'Заголовок 5', 'meta-alt-6': 'Заголовок 6',
@@ -43,7 +43,7 @@
             h1: 'Заголовок 1', h2: 'Заголовок 2', h3: 'Заголовок 3',
             h4: 'Заголовок 4', h5: 'Заголовок 5', h6: 'Заголовок 6'
         },
-        inline: { bold: 'Жирный', italic: 'Курсив', deleted: 'Зачеркнутый' },
+        inline: { bold: 'Жирный', italic: 'Курсив', deleted: 'Зачёркнутый' },
         list: {
             'unordered-list': 'Маркированный список', 'ordered-list': 'Нумерованный список',
             indent: 'Увеличить отступ', outdent: 'Уменьшить отступ'
@@ -55,10 +55,10 @@
         },
         table: {
             width: 'Ширина', nowrap: 'Без переноса', save: 'Сохранить', cancel: 'Отмена',
-            'table-cell': 'Ячейка таблицы', 'add-head': 'Добавить заголовок',
-            'remove-head': 'Удалить заголовок', 'add-row-below': 'Добавить строку ниже',
+            'table-cell': 'Ячейка таблицы', 'add-head': 'Добавить строку заголовка',
+            'remove-head': 'Удалить строку заголовка', 'add-row-below': 'Добавить строку ниже',
             'add-row-above': 'Добавить строку выше', 'remove-row': 'Удалить строку',
-            'add-column-after': 'Добавить столбец после', 'add-column-before': 'Добавить столбец перед',
+            'add-column-after': 'Добавить столбец справа', 'add-column-before': 'Добавить столбец слева',
             'remove-column': 'Удалить столбец'
         },
         image: {
@@ -87,17 +87,17 @@
             'mobile-view': 'Мобильный вид', cancel: 'Отмена', insert: 'Вставить',
             unlink: 'Удалить ссылку', save: 'Сохранить', add: 'Добавить',
             'transform-to-text': 'Преобразовать в текст', align: 'Выравнивание', valign: 'Вертикальное выравнивание',
-            outset: 'Вынос', indent: 'Увеличить отступ', outdent: 'Уменьшить отступ', head: 'Заголовок',
+            outset: 'Вынос', indent: 'Увеличить отступ', outdent: 'Уменьшить отступ', head: 'Строка заголовка',
             row: 'Строка', cell: 'Ячейка', html: 'HTML', templates: 'Шаблоны',
             shortcuts: 'Сочетания клавиш', format: 'Формат', bold: 'Жирный', italic: 'Курсив',
-            deleted: 'Зачеркнутый', underline: 'Подчеркнутый', table: 'Таблица', link: 'Ссылка',
+            deleted: 'Зачёркнутый', underline: 'Подчёркнутый', table: 'Таблица', link: 'Ссылка',
             undo: 'Отменить', redo: 'Повторить', style: 'Стиль', config: 'Конфигурация',
             settings: 'Настройки', text: 'Текст', embed: 'Встраивание', grid: 'Сетка',
             image: 'Изображение', list: 'Список', delete: 'Удалить', duplicate: 'Дублировать',
             sort: 'Сортировать', edit: 'Редактировать', inline: 'Встроенный'
         },
-        // Block labels. The last two are contributed by the `math` and `variable`
-        // plugins; the rest are core block types.
+        // Block labels. The last four are contributed by the `bulma-content`, `tags`,
+        // `math` and `variable` plugins; the rest are core block types.
         blocks: {
             noneditable: 'Нередактируемый', paragraph: 'Абзац', heading: 'Заголовок',
             image: 'Изображение', figcaption: 'Подпись к изображению', embed: 'Встраивание',
@@ -105,7 +105,7 @@
             snippet: 'Фрагмент', column: 'Столбец', grid: 'Сетка', list: 'Список',
             table: 'Таблица', layer: 'Слой', row: 'Строка', text: 'Текст', cell: 'Ячейка',
             dlist: 'Список определений', address: 'Адрес', form: 'Форма', card: 'Карточка',
-            tags: 'Теги', math: 'Математика', variable: 'Переменная'
+            content: 'Содержимое', tags: 'Теги', math: 'Формула', variable: 'Переменная'
         },
 
         // ─────────────────────────────────────────────────────────────
@@ -123,11 +123,11 @@
         counter: { words: 'слов', chars: 'символов' },
         // filelink plugin
         filelink: {
-            file: 'Файл', upload: 'Загрузить', title: 'Заголовок', choose: 'Выбрать',
+            file: 'Файл', upload: 'Загрузить', title: 'Название', choose: 'Выбрать',
             placeholder: 'Перетащите файл для загрузки<br>или нажмите, чтобы выбрать'
         },
         // handle plugin
-        handle: { handle: 'Ручка' },
+        handle: { handle: 'Handle' },
         // icons plugin
         icons: { icons: 'Иконки' },
         // imageposition plugin
@@ -136,7 +136,7 @@
         imageresize: { 'image-resize': 'Изменение размера изображения' },
         // inlineformat plugin
         inlineformat: {
-            'inline-format': 'Встроенное форматирование', underline: 'Подчеркнутый',
+            'inline-format': 'Встроенное форматирование', underline: 'Подчёркнутый',
             superscript: 'Надстрочный', subscript: 'Подстрочный', mark: 'Выделение',
             code: 'Код', shortcut: 'Сочетание клавиш', 'remove-format': 'Удалить форматирование'
         },
@@ -147,7 +147,7 @@
         },
         // math plugin
         math: {
-            math: 'Математика', label: 'Введите выражение', add: 'Добавить',
+            math: 'Формула', label: 'Введите выражение', add: 'Добавить',
             save: 'Сохранить', cancel: 'Отмена'
         },
         // print plugin

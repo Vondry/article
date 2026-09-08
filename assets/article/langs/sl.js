@@ -15,12 +15,12 @@
         // Core editor UI
         // ─────────────────────────────────────────────────────────────
         accessibility: { 'help-label': 'Urejevalnik obogatenega besedila' },
-        editor: { title: 'Članek', multiple: 'Večkratno' },
+        editor: { title: 'Članek', multiple: 'Več blokov' },
         placeholders: {
             figcaption: 'Vnesite napis (neobvezno)',
             text: 'Vnesite besedilo...',
             code: 'Uredite za dodajanje kode...',
-            layer: 'Pritisnite Enter za dodajanje novega besedila...'
+            layer: 'Pritisnite Enter za dodajanje besedila...'
         },
         popup: {
             link: 'Povezava', add: 'Dodaj', grid: 'Mreža', back: 'Nazaj',
@@ -55,10 +55,10 @@
         },
         table: {
             width: 'Širina', nowrap: 'Brez preloma', save: 'Shrani', cancel: 'Prekliči',
-            'table-cell': 'Celica tabele', 'add-head': 'Dodaj glavo',
-            'remove-head': 'Odstrani glavo', 'add-row-below': 'Dodaj vrstico spodaj',
+            'table-cell': 'Celica tabele', 'add-head': 'Dodaj glavo tabele',
+            'remove-head': 'Odstrani glavo tabele', 'add-row-below': 'Dodaj vrstico spodaj',
             'add-row-above': 'Dodaj vrstico zgoraj', 'remove-row': 'Odstrani vrstico',
-            'add-column-after': 'Dodaj stolpec za', 'add-column-before': 'Dodaj stolpec pred',
+            'add-column-after': 'Dodaj stolpec desno', 'add-column-before': 'Dodaj stolpec levo',
             'remove-column': 'Odstrani stolpec'
         },
         image: {
@@ -87,7 +87,7 @@
             'mobile-view': 'Mobilni pogled', cancel: 'Prekliči', insert: 'Vstavi',
             unlink: 'Odstrani povezavo', save: 'Shrani', add: 'Dodaj',
             'transform-to-text': 'Pretvori v besedilo', align: 'Poravnava', valign: 'Navpična poravnava',
-            outset: 'Odmik navzven', indent: 'Povečaj zamik', outdent: 'Zmanjšaj zamik', head: 'Glava',
+            outset: 'Odmik navzven', indent: 'Povečaj zamik', outdent: 'Zmanjšaj zamik', head: 'Glava tabele',
             row: 'Vrstica', cell: 'Celica', html: 'HTML', templates: 'Predloge',
             shortcuts: 'Bližnjice na tipkovnici', format: 'Oblika', bold: 'Krepko', italic: 'Ležeče',
             deleted: 'Prečrtano', underline: 'Podčrtano', table: 'Tabela', link: 'Povezava',
@@ -96,16 +96,16 @@
             image: 'Slika', list: 'Seznam', delete: 'Izbriši', duplicate: 'Podvoji',
             sort: 'Razvrsti', edit: 'Uredi', inline: 'V vrstici'
         },
-        // Block labels. The last two are contributed by the `math` and `variable`
-        // plugins; the rest are core block types.
+        // Block labels. The last four are contributed by the `bulma-content`, `tags`,
+        // `math` and `variable` plugins; the rest are core block types.
         blocks: {
-            noneditable: 'Neuredivo', paragraph: 'Odstavek', heading: 'Naslov',
+            noneditable: 'Neurejljivo', paragraph: 'Odstavek', heading: 'Naslov',
             image: 'Slika', figcaption: 'Napis slike', embed: 'Vdelava',
             line: 'Črta', code: 'Koda', quote: 'Citat', quoteitem: 'Odstavek',
             snippet: 'Izrezek', column: 'Stolpec', grid: 'Mreža', list: 'Seznam',
             table: 'Tabela', layer: 'Plast', row: 'Vrstica', text: 'Besedilo', cell: 'Celica',
-            dlist: 'Seznam definicij', address: 'Naslov', form: 'Obrazec', card: 'Kartica',
-            tags: 'Oznake', math: 'Matematika', variable: 'Spremenljivka'
+            dlist: 'Seznam definicij', address: 'Kontaktni naslov', form: 'Obrazec', card: 'Kartica',
+            content: 'Vsebina', tags: 'Oznake', math: 'Formula', variable: 'Spremenljivka'
         },
 
         // ─────────────────────────────────────────────────────────────
@@ -118,7 +118,7 @@
         // carousel plugin
         carousel: { carousel: 'Vrtiljak', save: 'Shrani', cancel: 'Prekliči', insert: 'Vstavi' },
         // clips plugin
-        clips: { clips: 'Izrezki' },
+        clips: { clips: 'Posnetki' },
         // counter plugin
         counter: { words: 'besed', chars: 'znakov' },
         // filelink plugin
@@ -127,7 +127,7 @@
             placeholder: 'Povlecite za nalaganje datoteke<br>ali kliknite za izbiro'
         },
         // handle plugin
-        handle: { handle: 'Ročaj' },
+        handle: { handle: 'Handle' },
         // icons plugin
         icons: { icons: 'Ikone' },
         // imageposition plugin
@@ -147,7 +147,7 @@
         },
         // math plugin
         math: {
-            math: 'Matematika', label: 'Vnesite izraz', add: 'Dodaj',
+            math: 'Formula', label: 'Vnesite izraz', add: 'Dodaj',
             save: 'Shrani', cancel: 'Prekliči'
         },
         // print plugin
@@ -155,7 +155,7 @@
         // removeformat plugin
         removeformat: { removeformat: 'Odstrani oblikovanje' },
         // selector plugin
-        selector: { selector: 'Izbirnik', save: 'Shrani', cancel: 'Prekliči' },
+        selector: { selector: 'Selektor', save: 'Shrani', cancel: 'Prekliči' },
         // slideshow plugin
         slideshow: { slideshow: 'Diaprojekcija', save: 'Shrani', cancel: 'Prekliči', insert: 'Vstavi' },
         // specialchars plugin

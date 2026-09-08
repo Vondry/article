@@ -15,12 +15,12 @@
         // Core editor UI
         // ─────────────────────────────────────────────────────────────
         accessibility: { 'help-label': 'Uređivač obogaćenog teksta' },
-        editor: { title: 'Članak', multiple: 'Višestruko' },
+        editor: { title: 'Članak', multiple: 'Više blokova' },
         placeholders: {
             figcaption: 'Unesite opis (neobavezno)',
             text: 'Upišite nešto...',
             code: 'Uredite za dodavanje koda...',
-            layer: 'Pritisnite Enter za dodavanje novog teksta...'
+            layer: 'Pritisnite Enter za dodavanje teksta...'
         },
         popup: {
             link: 'Poveznica', add: 'Dodaj', grid: 'Mreža', back: 'Natrag',
@@ -58,7 +58,7 @@
             'table-cell': 'Ćelija tablice', 'add-head': 'Dodaj zaglavlje',
             'remove-head': 'Ukloni zaglavlje', 'add-row-below': 'Dodaj redak ispod',
             'add-row-above': 'Dodaj redak iznad', 'remove-row': 'Ukloni redak',
-            'add-column-after': 'Dodaj stupac poslije', 'add-column-before': 'Dodaj stupac prije',
+            'add-column-after': 'Dodaj stupac desno', 'add-column-before': 'Dodaj stupac lijevo',
             'remove-column': 'Ukloni stupac'
         },
         image: {
@@ -96,16 +96,16 @@
             image: 'Slika', list: 'Popis', delete: 'Izbriši', duplicate: 'Dupliciraj',
             sort: 'Sortiraj', edit: 'Uredi', inline: 'Umetnuto'
         },
-        // Block labels. The last two are contributed by the `math` and `variable`
-        // plugins; the rest are core block types.
+        // Block labels. The last four are contributed by the `bulma-content`, `tags`,
+        // `math` and `variable` plugins; the rest are core block types.
         blocks: {
-            noneditable: 'Neuredivo', paragraph: 'Odlomak', heading: 'Naslov',
+            noneditable: 'Neuređivo', paragraph: 'Odlomak', heading: 'Naslov',
             image: 'Slika', figcaption: 'Opis slike', embed: 'Ugrađeni sadržaj',
             line: 'Linija', code: 'Kod', quote: 'Citat', quoteitem: 'Odlomak',
             snippet: 'Isječak', column: 'Stupac', grid: 'Mreža', list: 'Popis',
             table: 'Tablica', layer: 'Sloj', row: 'Redak', text: 'Tekst', cell: 'Ćelija',
             dlist: 'Definicijski popis', address: 'Adresa', form: 'Obrazac', card: 'Kartica',
-            tags: 'Oznake', math: 'Matematika', variable: 'Varijabla'
+            content: 'Sadržaj', tags: 'Oznake', math: 'Formula', variable: 'Varijabla'
         },
 
         // ─────────────────────────────────────────────────────────────
@@ -118,7 +118,7 @@
         // carousel plugin
         carousel: { carousel: 'Karusel', save: 'Spremi', cancel: 'Odustani', insert: 'Umetni' },
         // clips plugin
-        clips: { clips: 'Isječci' },
+        clips: { clips: 'Klipovi' },
         // counter plugin
         counter: { words: 'riječi', chars: 'znakova' },
         // filelink plugin
@@ -127,7 +127,7 @@
             placeholder: 'Povucite za prijenos datoteke<br>ili kliknite za odabir'
         },
         // handle plugin
-        handle: { handle: 'Ručka' },
+        handle: { handle: 'Handle' },
         // icons plugin
         icons: { icons: 'Ikone' },
         // imageposition plugin
@@ -147,7 +147,7 @@
         },
         // math plugin
         math: {
-            math: 'Matematika', label: 'Unesite izraz', add: 'Dodaj',
+            math: 'Formula', label: 'Unesite izraz', add: 'Dodaj',
             save: 'Spremi', cancel: 'Odustani'
         },
         // print plugin

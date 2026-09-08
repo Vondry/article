@@ -14,13 +14,13 @@
         // ─────────────────────────────────────────────────────────────
         // Core editor UI
         // ─────────────────────────────────────────────────────────────
-        accessibility: { 'help-label': 'Textový editor' },
-        editor: { title: 'Článek', multiple: 'Vícenásobné' },
+        accessibility: { 'help-label': 'Editor formátovaného textu' },
+        editor: { title: 'Článek', multiple: 'Více bloků' },
         placeholders: {
             figcaption: 'Zadejte popisek (nepovinné)',
             text: 'Začněte psát...',
             code: 'Upravte pro přidání kódu...',
-            layer: 'Stiskněte Enter pro přidání nového textu...'
+            layer: 'Stiskněte Enter pro přidání textu...'
         },
         popup: {
             link: 'Odkaz', add: 'Přidat', grid: 'Mřížka', back: 'Zpět',
@@ -29,7 +29,7 @@
         shortcuts: {
             'meta-a': 'Vybrat text v bloku', 'meta-shift-a': 'Vybrat všechny bloky',
             'meta-click': 'Vybrat více bloků', 'meta-z': 'Zpět', 'meta-shift-z': 'Znovu',
-            'meta-shift-m': 'Odebrat vložené formátování', 'meta-b': 'Tučné',
+            'meta-shift-m': 'Odebrat znakové formátování', 'meta-b': 'Tučné',
             'meta-i': 'Kurzíva', 'meta-u': 'Podtržené', 'meta-h': 'Horní index',
             'meta-l': 'Dolní index', 'meta-k': 'Odkaz', 'meta-alt-0': 'Normální text',
             'meta-alt-1': 'Nadpis 1', 'meta-alt-2': 'Nadpis 2', 'meta-alt-3': 'Nadpis 3',
@@ -56,9 +56,9 @@
         table: {
             width: 'Šířka', nowrap: 'Nezalamovat', save: 'Uložit', cancel: 'Zrušit',
             'table-cell': 'Buňka tabulky', 'add-head': 'Přidat záhlaví',
-            'remove-head': 'Odebrat záhlaví', 'add-row-below': 'Přidat řádek pod',
-            'add-row-above': 'Přidat řádek nad', 'remove-row': 'Odebrat řádek',
-            'add-column-after': 'Přidat sloupec za', 'add-column-before': 'Přidat sloupec před',
+            'remove-head': 'Odebrat záhlaví', 'add-row-below': 'Přidat řádek níže',
+            'add-row-above': 'Přidat řádek výše', 'remove-row': 'Odebrat řádek',
+            'add-column-after': 'Přidat sloupec vpravo', 'add-column-before': 'Přidat sloupec vlevo',
             'remove-column': 'Odebrat sloupec'
         },
         image: {
@@ -94,10 +94,10 @@
             undo: 'Zpět', redo: 'Znovu', style: 'Styl', config: 'Konfigurace',
             settings: 'Nastavení', text: 'Text', embed: 'Vložený obsah', grid: 'Mřížka',
             image: 'Obrázek', list: 'Seznam', delete: 'Smazat', duplicate: 'Duplikovat',
-            sort: 'Seřadit', edit: 'Upravit', inline: 'Vložené'
+            sort: 'Seřadit', edit: 'Upravit', inline: 'Znakové'
         },
-        // Popisky bloků. Poslední dva přidávají pluginy `math` a `variable`;
-        // ostatní jsou základní typy bloků.
+        // Block labels. The last four are contributed by the `bulma-content`, `tags`,
+        // `math` and `variable` plugins; the rest are core block types.
         blocks: {
             noneditable: 'Needitovatelné', paragraph: 'Odstavec', heading: 'Nadpis',
             image: 'Obrázek', figcaption: 'Popisek obrázku', embed: 'Vložený obsah',
@@ -105,11 +105,11 @@
             snippet: 'Úryvek', column: 'Sloupec', grid: 'Mřížka', list: 'Seznam',
             table: 'Tabulka', layer: 'Vrstva', row: 'Řádek', text: 'Text', cell: 'Buňka',
             dlist: 'Definiční seznam', address: 'Adresa', form: 'Formulář', card: 'Karta',
-            tags: 'Štítky', math: 'Matematický výraz', variable: 'Proměnná'
+            content: 'Obsah', tags: 'Štítky', math: 'Vzorec', variable: 'Proměnná'
         },
 
         // ─────────────────────────────────────────────────────────────
-        // Plugin UI — jedna skupina na plugin (abecedně)
+        // Plugin UI — one group per plugin (alphabetical)
         // ─────────────────────────────────────────────────────────────
         // blockcode plugin
         blockcode: { save: 'Uložit', cancel: 'Zrušit', 'edit-code': 'Upravit kód' },
@@ -127,7 +127,7 @@
             placeholder: 'Přetáhněte pro nahrání souboru<br>nebo klikněte pro výběr'
         },
         // handle plugin
-        handle: { handle: 'Úchyt' },
+        handle: { handle: 'Handle' },
         // icons plugin
         icons: { icons: 'Ikony' },
         // imageposition plugin
@@ -136,7 +136,7 @@
         imageresize: { 'image-resize': 'Změna velikosti obrázku' },
         // inlineformat plugin
         inlineformat: {
-            'inline-format': 'Vložené formátování', underline: 'Podtržené',
+            'inline-format': 'Znakové formátování', underline: 'Podtržené',
             superscript: 'Horní index', subscript: 'Dolní index', mark: 'Zvýraznění',
             code: 'Kód', shortcut: 'Zkratka', 'remove-format': 'Odebrat formátování'
         },
@@ -147,7 +147,7 @@
         },
         // math plugin
         math: {
-            math: 'Matematický výraz', label: 'Zadejte výraz', add: 'Přidat',
+            math: 'Vzorec', label: 'Zadejte výraz', add: 'Přidat',
             save: 'Uložit', cancel: 'Zrušit'
         },
         // print plugin
@@ -155,7 +155,7 @@
         // removeformat plugin
         removeformat: { removeformat: 'Odebrat formátování' },
         // selector plugin
-        selector: { selector: 'Výběr', save: 'Uložit', cancel: 'Zrušit' },
+        selector: { selector: 'Selektor', save: 'Uložit', cancel: 'Zrušit' },
         // slideshow plugin
         slideshow: { slideshow: 'Prezentace', save: 'Uložit', cancel: 'Zrušit', insert: 'Vložit' },
         // specialchars plugin

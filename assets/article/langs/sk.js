@@ -14,13 +14,13 @@
         // ─────────────────────────────────────────────────────────────
         // Core editor UI
         // ─────────────────────────────────────────────────────────────
-        accessibility: { 'help-label': 'Textový editor' },
-        editor: { title: 'Článok', multiple: 'Viacnásobné' },
+        accessibility: { 'help-label': 'Editor formátovaného textu' },
+        editor: { title: 'Článok', multiple: 'Viac blokov' },
         placeholders: {
             figcaption: 'Zadajte popis (voliteľné)',
             text: 'Začnite písať...',
             code: 'Upravte na pridanie kódu...',
-            layer: 'Stlačte Enter na pridanie nového textu...'
+            layer: 'Stlačte Enter na pridanie textu...'
         },
         popup: {
             link: 'Odkaz', add: 'Pridať', grid: 'Mriežka', back: 'Späť',
@@ -29,7 +29,7 @@
         shortcuts: {
             'meta-a': 'Vybrať text v bloku', 'meta-shift-a': 'Vybrať všetky bloky',
             'meta-click': 'Vybrať viac blokov', 'meta-z': 'Späť', 'meta-shift-z': 'Znova',
-            'meta-shift-m': 'Odstrániť vložené formátovanie', 'meta-b': 'Tučné',
+            'meta-shift-m': 'Odstrániť znakové formátovanie', 'meta-b': 'Tučné',
             'meta-i': 'Kurzíva', 'meta-u': 'Podčiarknuté', 'meta-h': 'Horný index',
             'meta-l': 'Dolný index', 'meta-k': 'Odkaz', 'meta-alt-0': 'Normálny text',
             'meta-alt-1': 'Nadpis 1', 'meta-alt-2': 'Nadpis 2', 'meta-alt-3': 'Nadpis 3',
@@ -56,9 +56,9 @@
         table: {
             width: 'Šírka', nowrap: 'Nezalamovať', save: 'Uložiť', cancel: 'Zrušiť',
             'table-cell': 'Bunka tabuľky', 'add-head': 'Pridať hlavičku',
-            'remove-head': 'Odstrániť hlavičku', 'add-row-below': 'Pridať riadok pod',
-            'add-row-above': 'Pridať riadok nad', 'remove-row': 'Odstrániť riadok',
-            'add-column-after': 'Pridať stĺpec za', 'add-column-before': 'Pridať stĺpec pred',
+            'remove-head': 'Odstrániť hlavičku', 'add-row-below': 'Pridať riadok nižšie',
+            'add-row-above': 'Pridať riadok vyššie', 'remove-row': 'Odstrániť riadok',
+            'add-column-after': 'Pridať stĺpec vpravo', 'add-column-before': 'Pridať stĺpec vľavo',
             'remove-column': 'Odstrániť stĺpec'
         },
         image: {
@@ -94,10 +94,10 @@
             undo: 'Späť', redo: 'Znova', style: 'Štýl', config: 'Konfigurácia',
             settings: 'Nastavenia', text: 'Text', embed: 'Vložený obsah', grid: 'Mriežka',
             image: 'Obrázok', list: 'Zoznam', delete: 'Odstrániť', duplicate: 'Duplikovať',
-            sort: 'Zoradiť', edit: 'Upraviť', inline: 'Vložené'
+            sort: 'Zoradiť', edit: 'Upraviť', inline: 'Znakové'
         },
-        // Block labels. The last two are contributed by the `math` and `variable`
-        // plugins; the rest are core block types.
+        // Block labels. The last four are contributed by the `bulma-content`, `tags`,
+        // `math` and `variable` plugins; the rest are core block types.
         blocks: {
             noneditable: 'Neupraviteľné', paragraph: 'Odsek', heading: 'Nadpis',
             image: 'Obrázok', figcaption: 'Popis obrázka', embed: 'Vložený obsah',
@@ -105,7 +105,7 @@
             snippet: 'Úryvok', column: 'Stĺpec', grid: 'Mriežka', list: 'Zoznam',
             table: 'Tabuľka', layer: 'Vrstva', row: 'Riadok', text: 'Text', cell: 'Bunka',
             dlist: 'Definičný zoznam', address: 'Adresa', form: 'Formulár', card: 'Karta',
-            tags: 'Štítky', math: 'Matematika', variable: 'Premenná'
+            content: 'Obsah', tags: 'Štítky', math: 'Vzorec', variable: 'Premenná'
         },
 
         // ─────────────────────────────────────────────────────────────
@@ -127,7 +127,7 @@
             placeholder: 'Presuňte súbor na nahratie<br>alebo kliknite na výber'
         },
         // handle plugin
-        handle: { handle: 'Úchyt' },
+        handle: { handle: 'Handle' },
         // icons plugin
         icons: { icons: 'Ikony' },
         // imageposition plugin
@@ -136,7 +136,7 @@
         imageresize: { 'image-resize': 'Zmena veľkosti obrázka' },
         // inlineformat plugin
         inlineformat: {
-            'inline-format': 'Vložené formátovanie', underline: 'Podčiarknuté',
+            'inline-format': 'Znakové formátovanie', underline: 'Podčiarknuté',
             superscript: 'Horný index', subscript: 'Dolný index', mark: 'Zvýraznenie',
             code: 'Kód', shortcut: 'Skratka', 'remove-format': 'Odstrániť formátovanie'
         },
@@ -147,7 +147,7 @@
         },
         // math plugin
         math: {
-            math: 'Matematika', label: 'Zadajte výraz', add: 'Pridať',
+            math: 'Vzorec', label: 'Zadajte výraz', add: 'Pridať',
             save: 'Uložiť', cancel: 'Zrušiť'
         },
         // print plugin
@@ -155,7 +155,7 @@
         // removeformat plugin
         removeformat: { removeformat: 'Odstrániť formátovanie' },
         // selector plugin
-        selector: { selector: 'Výber', save: 'Uložiť', cancel: 'Zrušiť' },
+        selector: { selector: 'Selektor', save: 'Uložiť', cancel: 'Zrušiť' },
         // slideshow plugin
         slideshow: { slideshow: 'Prezentácia', save: 'Uložiť', cancel: 'Zrušiť', insert: 'Vložiť' },
         // specialchars plugin

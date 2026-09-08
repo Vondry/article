@@ -15,12 +15,12 @@
         // Core editor UI
         // ─────────────────────────────────────────────────────────────
         accessibility: { 'help-label': 'Editor de texto enriquecido' },
-        editor: { title: 'Artículo', multiple: 'Múltiple' },
+        editor: { title: 'Artículo', multiple: 'Varios bloques' },
         placeholders: {
-            figcaption: 'Escribe un pie de foto (opcional)',
+            figcaption: 'Escribe una leyenda (opcional)',
             text: 'Escribe algo...',
             code: 'Edita para añadir código...',
-            layer: 'Pulsa Intro para añadir un nuevo texto...'
+            layer: 'Pulsa Intro para añadir texto...'
         },
         popup: {
             link: 'Enlace', add: 'Añadir', grid: 'Cuadrícula', back: 'Atrás',
@@ -64,16 +64,16 @@
         image: {
             or: 'o', 'alt-text': 'Texto alternativo', save: 'Guardar', link: 'Enlace',
             width: 'Ancho', delete: 'Eliminar', cancel: 'Cancelar', insert: 'Insertar',
-            caption: 'Pie de foto', 'link-in-new-tab': 'Abrir enlace en una pestaña nueva',
+            caption: 'Leyenda', 'link-in-new-tab': 'Abrir enlace en una pestaña nueva',
             'url-placeholder': 'Pega la URL de la imagen...',
             'upload-new-placeholder': 'Arrastra para subir una nueva imagen<br>o haz clic para seleccionar'
         },
         code: { code: 'Código', insert: 'Insertar', save: 'Guardar', cancel: 'Cancelar' },
         embed: {
-            embed: 'Insertar contenido', caption: 'Pie de foto', insert: 'Insertar', save: 'Guardar',
+            embed: 'Incrustar', caption: 'Leyenda', insert: 'Insertar', save: 'Guardar',
             cancel: 'Cancelar',
-            description: 'Pega cualquier código embebido/HTML o introduce la URL (solo video de Vimeo o YouTube)',
-            'responsive-video': 'Video adaptable'
+            description: 'Pega cualquier código de incrustación/HTML o introduce la URL (solo vídeo de Vimeo o YouTube)',
+            'responsive-video': 'Vídeo adaptable'
         },
         upload: { placeholder: 'Arrastra para subir <br>o haz clic para seleccionar' },
         templates: { templates: 'Plantillas' },
@@ -81,31 +81,31 @@
         form: {
             link: 'Enlace', url: 'URL', text: 'Texto', name: 'Nombre',
             'alt-text': 'Texto alternativo', image: 'Imagen', upload: 'Subir',
-            alignment: 'Alineación', outset: 'Desplazamiento exterior', valign: 'Alineación vertical'
+            alignment: 'Alineación', outset: 'Saliente', valign: 'Alineación vertical'
         },
         buttons: {
             'mobile-view': 'Vista móvil', cancel: 'Cancelar', insert: 'Insertar',
             unlink: 'Quitar enlace', save: 'Guardar', add: 'Añadir',
             'transform-to-text': 'Transformar en texto', align: 'Alineación', valign: 'Alineación vertical',
-            outset: 'Desplazamiento exterior', indent: 'Aumentar sangría', outdent: 'Reducir sangría', head: 'Encabezado',
+            outset: 'Saliente', indent: 'Aumentar sangría', outdent: 'Reducir sangría', head: 'Encabezado',
             row: 'Fila', cell: 'Celda', html: 'HTML', templates: 'Plantillas',
             shortcuts: 'Atajos de teclado', format: 'Formato', bold: 'Negrita', italic: 'Cursiva',
             deleted: 'Tachado', underline: 'Subrayado', table: 'Tabla', link: 'Enlace',
             undo: 'Deshacer', redo: 'Rehacer', style: 'Estilo', config: 'Configuración',
-            settings: 'Ajustes', text: 'Texto', embed: 'Insertar contenido', grid: 'Cuadrícula',
+            settings: 'Ajustes', text: 'Texto', embed: 'Incrustar', grid: 'Cuadrícula',
             image: 'Imagen', list: 'Lista', delete: 'Eliminar', duplicate: 'Duplicar',
             sort: 'Ordenar', edit: 'Editar', inline: 'En línea'
         },
-        // Block labels. The last two are contributed by the `math` and `variable`
-        // plugins; the rest are core block types.
+        // Block labels. The last four are contributed by the `bulma-content`, `tags`,
+        // `math` and `variable` plugins; the rest are core block types.
         blocks: {
             noneditable: 'No editable', paragraph: 'Párrafo', heading: 'Encabezado',
-            image: 'Imagen', figcaption: 'Pie de imagen', embed: 'Contenido embebido',
+            image: 'Imagen', figcaption: 'Leyenda de imagen', embed: 'Contenido incrustado',
             line: 'Línea', code: 'Código', quote: 'Cita', quoteitem: 'Párrafo',
             snippet: 'Fragmento', column: 'Columna', grid: 'Cuadrícula', list: 'Lista',
             table: 'Tabla', layer: 'Capa', row: 'Fila', text: 'Texto', cell: 'Celda',
             dlist: 'Lista de definiciones', address: 'Dirección', form: 'Formulario', card: 'Tarjeta',
-            tags: 'Etiquetas', math: 'Matemáticas', variable: 'Variable'
+            content: 'Contenido', tags: 'Etiquetas', math: 'Fórmula', variable: 'Variable'
         },
 
         // ─────────────────────────────────────────────────────────────
@@ -127,7 +127,7 @@
             placeholder: 'Arrastra para subir un archivo<br>o haz clic para seleccionar'
         },
         // handle plugin
-        handle: { handle: 'Asa' },
+        handle: { handle: 'Handle' },
         // icons plugin
         icons: { icons: 'Iconos' },
         // imageposition plugin
@@ -147,7 +147,7 @@
         },
         // math plugin
         math: {
-            math: 'Matemáticas', label: 'Escribe una expresión', add: 'Añadir',
+            math: 'Fórmula', label: 'Escribe una expresión', add: 'Añadir',
             save: 'Guardar', cancel: 'Cancelar'
         },
         // print plugin

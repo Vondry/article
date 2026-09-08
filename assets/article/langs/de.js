@@ -15,7 +15,7 @@
         // Core editor UI
         // ─────────────────────────────────────────────────────────────
         accessibility: { 'help-label': 'Rich-Text-Editor' },
-        editor: { title: 'Artikel', multiple: 'Mehrfach' },
+        editor: { title: 'Artikel', multiple: 'Mehrere Blöcke' },
         placeholders: {
             figcaption: 'Beschriftung eingeben (optional)',
             text: 'Etwas eingeben...',
@@ -55,8 +55,8 @@
         },
         table: {
             width: 'Breite', nowrap: 'Kein Zeilenumbruch', save: 'Speichern', cancel: 'Abbrechen',
-            'table-cell': 'Tabellenzelle', 'add-head': 'Kopf hinzufügen',
-            'remove-head': 'Kopf entfernen', 'add-row-below': 'Zeile darunter hinzufügen',
+            'table-cell': 'Tabellenzelle', 'add-head': 'Kopfzeile hinzufügen',
+            'remove-head': 'Kopfzeile entfernen', 'add-row-below': 'Zeile darunter hinzufügen',
             'add-row-above': 'Zeile darüber hinzufügen', 'remove-row': 'Zeile entfernen',
             'add-column-after': 'Spalte danach hinzufügen', 'add-column-before': 'Spalte davor hinzufügen',
             'remove-column': 'Spalte entfernen'
@@ -87,7 +87,7 @@
             'mobile-view': 'Mobile Ansicht', cancel: 'Abbrechen', insert: 'Einfügen',
             unlink: 'Link entfernen', save: 'Speichern', add: 'Hinzufügen',
             'transform-to-text': 'In Text umwandeln', align: 'Ausrichtung', valign: 'Vertikale Ausrichtung',
-            outset: 'Überstand', indent: 'Einrücken', outdent: 'Ausrücken', head: 'Kopf',
+            outset: 'Überstand', indent: 'Einrücken', outdent: 'Ausrücken', head: 'Kopfzeile',
             row: 'Zeile', cell: 'Zelle', html: 'HTML', templates: 'Vorlagen',
             shortcuts: 'Tastenkürzel', format: 'Format', bold: 'Fett', italic: 'Kursiv',
             deleted: 'Durchgestrichen', underline: 'Unterstreichen', table: 'Tabelle', link: 'Link',
@@ -96,8 +96,8 @@
             image: 'Bild', list: 'Liste', delete: 'Löschen', duplicate: 'Duplizieren',
             sort: 'Sortieren', edit: 'Bearbeiten', inline: 'Inline'
         },
-        // Block labels. The last two are contributed by the `math` and `variable`
-        // plugins; the rest are core block types.
+        // Block labels. The last four are contributed by the `bulma-content`, `tags`,
+        // `math` and `variable` plugins; the rest are core block types.
         blocks: {
             noneditable: 'Nicht bearbeitbar', paragraph: 'Absatz', heading: 'Überschrift',
             image: 'Bild', figcaption: 'Bildbeschriftung', embed: 'Einbettung',
@@ -105,7 +105,7 @@
             snippet: 'Snippet', column: 'Spalte', grid: 'Raster', list: 'Liste',
             table: 'Tabelle', layer: 'Ebene', row: 'Zeile', text: 'Text', cell: 'Zelle',
             dlist: 'Definitionsliste', address: 'Adresse', form: 'Formular', card: 'Karte',
-            tags: 'Tags', math: 'Mathematik', variable: 'Variable'
+            content: 'Inhalt', tags: 'Tags', math: 'Formel', variable: 'Variable'
         },
 
         // ─────────────────────────────────────────────────────────────
@@ -127,7 +127,7 @@
             placeholder: 'Datei zum Hochladen hierher ziehen<br>oder zum Auswählen klicken'
         },
         // handle plugin
-        handle: { handle: 'Griff' },
+        handle: { handle: 'Handle' },
         // icons plugin
         icons: { icons: 'Symbole' },
         // imageposition plugin
@@ -138,7 +138,7 @@
         inlineformat: {
             'inline-format': 'Inline-Format', underline: 'Unterstreichen',
             superscript: 'Hochgestellt', subscript: 'Tiefgestellt', mark: 'Markieren',
-            code: 'Code', shortcut: 'Tastenkürzel', 'remove-format': 'Formatierung entfernen'
+            code: 'Code', shortcut: 'Tastenkombination', 'remove-format': 'Formatierung entfernen'
         },
         // makebutton plugin
         makebutton: {
@@ -147,7 +147,7 @@
         },
         // math plugin
         math: {
-            math: 'Mathematik', label: 'Ausdruck eingeben', add: 'Hinzufügen',
+            math: 'Formel', label: 'Ausdruck eingeben', add: 'Hinzufügen',
             save: 'Speichern', cancel: 'Abbrechen'
         },
         // print plugin

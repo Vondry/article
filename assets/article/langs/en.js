@@ -24,7 +24,7 @@
             figcaption: 'Type caption (optional)',
             text: 'Type something...',
             code: 'Edit to add code...',
-            layer: 'Press enter to add a new text...'
+            layer: 'Press Enter to add new text...'
         },
         popup: {
             link: 'Link', add: 'Add', grid: 'Grid', back: 'Back',
@@ -33,7 +33,7 @@
         shortcuts: {
             'meta-a': 'Select text in the block', 'meta-shift-a': 'Select all blocks',
             'meta-click': 'Select multiple blocks', 'meta-z': 'Undo', 'meta-shift-z': 'Redo',
-            'meta-shift-m': 'Remove inline format', 'meta-b': 'Bold',
+            'meta-shift-m': 'Remove inline formatting', 'meta-b': 'Bold',
             'meta-i': 'Italic', 'meta-u': 'Underline', 'meta-h': 'Superscript',
             'meta-l': 'Subscript', 'meta-k': 'Link', 'meta-alt-0': 'Normal text',
             'meta-alt-1': 'Heading 1', 'meta-alt-2': 'Heading 2', 'meta-alt-3': 'Heading 3',
@@ -58,9 +58,9 @@
             insert: 'Insert', cancel: 'Cancel', text: 'Text', url: 'URL'
         },
         table: {
-            width: 'Width', nowrap: 'Nowrap', save: 'Save', cancel: 'Cancel',
-            'table-cell': 'Table Cell', 'add-head': 'Add head',
-            'remove-head': 'Remove head', 'add-row-below': 'Add row below',
+            width: 'Width', nowrap: 'No wrap', save: 'Save', cancel: 'Cancel',
+            'table-cell': 'Table Cell', 'add-head': 'Add header',
+            'remove-head': 'Remove header', 'add-row-below': 'Add row below',
             'add-row-above': 'Add row above', 'remove-row': 'Remove row',
             'add-column-after': 'Add column after', 'add-column-before': 'Add column before',
             'remove-column': 'Remove column'
@@ -69,29 +69,29 @@
             or: 'or', 'alt-text': 'Alt Text', save: 'Save', link: 'Link',
             width: 'Width', delete: 'Delete', cancel: 'Cancel', insert: 'Insert',
             caption: 'Caption', 'link-in-new-tab': 'Open link in new tab',
-            'url-placeholder': 'Paste url of image...',
+            'url-placeholder': 'Paste URL of image...',
             'upload-new-placeholder': 'Drag to upload a new image<br>or click to select'
         },
         code: { code: 'Code', insert: 'Insert', save: 'Save', cancel: 'Cancel' },
         embed: {
             embed: 'Embed', caption: 'Caption', insert: 'Insert', save: 'Save',
             cancel: 'Cancel',
-            description: 'Paste any embed/html code or enter the url (vimeo or youtube video only)',
+            description: 'Paste any embed/HTML code or enter the URL (Vimeo or YouTube video only)',
             'responsive-video': 'Responsive video'
         },
         upload: { placeholder: 'Drag to upload <br>or click to select' },
         templates: { templates: 'Templates' },
         snippets: { snippets: 'Snippets' },
         form: {
-            link: 'Link', url: 'Url', text: 'Text', name: 'Name',
+            link: 'Link', url: 'URL', text: 'Text', name: 'Name',
             'alt-text': 'Alt Text', image: 'Image', upload: 'Upload',
-            alignment: 'Alignment', outset: 'Outset', valign: 'Valign'
+            alignment: 'Alignment', outset: 'Outset', valign: 'Vertical alignment'
         },
         buttons: {
             'mobile-view': 'Mobile View', cancel: 'Cancel', insert: 'Insert',
             unlink: 'Unlink', save: 'Save', add: 'Add',
-            'transform-to-text': 'Transform to text', align: 'Alignment', valign: 'Valign',
-            outset: 'Outset', indent: 'Indent', outdent: 'Outdent', head: 'Head',
+            'transform-to-text': 'Transform to text', align: 'Alignment', valign: 'Vertical alignment',
+            outset: 'Outset', indent: 'Indent', outdent: 'Outdent', head: 'Header',
             row: 'Row', cell: 'Cell', html: 'HTML', templates: 'Templates',
             shortcuts: 'Keyboard Shortcuts', format: 'Format', bold: 'Bold', italic: 'Italic',
             deleted: 'Deleted', underline: 'Underline', table: 'Table', link: 'Link',
@@ -100,8 +100,8 @@
             image: 'Image', list: 'List', delete: 'Delete', duplicate: 'Duplicate',
             sort: 'Sort', edit: 'Edit', inline: 'Inline'
         },
-        // Block labels. The last two are contributed by the `math` and `variable`
-        // plugins; the rest are core block types.
+        // Block labels. The last four are contributed by the `bulma-content`, `tags`,
+        // `math` and `variable` plugins; the rest are core block types.
         blocks: {
             noneditable: 'Noneditable', paragraph: 'Paragraph', heading: 'Heading',
             image: 'Image', figcaption: 'Figcaption', embed: 'Embed',
@@ -109,7 +109,7 @@
             snippet: 'Snippet', column: 'Column', grid: 'Grid', list: 'List',
             table: 'Table', layer: 'Layer', row: 'Row', text: 'Text', cell: 'Cell',
             dlist: 'Definition List', address: 'Address', form: 'Form', card: 'Card',
-            tags: 'Tags', math: 'Math', variable: 'Variable'
+            content: 'Content', tags: 'Tags', math: 'Math', variable: 'Variable'
         },
 
         // ─────────────────────────────────────────────────────────────
@@ -146,7 +146,7 @@
         },
         // makebutton plugin
         makebutton: {
-            'make-a-button': 'Make a Button', 'remove-button': 'Remove button',
+            'make-a-button': 'Make a Button', 'remove-button': 'Remove Button',
             button: 'Button'
         },
         // math plugin
