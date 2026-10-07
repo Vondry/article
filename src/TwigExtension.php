@@ -42,9 +42,7 @@ class TwigExtension extends AbstractExtension
         // (resolved per user by Bolt's LocaleSubscriber). It is intentionally not
         // configurable — set last so any stray `editor.lang` in config can't freeze
         // it. The matching langs/<code>.js is loaded by article_includes().
-        if (! isset($settings['editor']) || ! is_array($settings['editor'])) {
-            $settings['editor'] = [];
-        }
+        $settings['editor'] ??= [];
         $settings['editor']['lang'] = $this->resolveLocale();
 
         return Json::json_encode($settings, JSON_HEX_QUOT | JSON_HEX_APOS);
