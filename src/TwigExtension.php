@@ -63,7 +63,7 @@ class TwigExtension extends AbstractExtension
         // every enabled plugin. Exactly one file is loaded. When the locale resolves
         // to English (including the fallback), that file is langs/en.js, the
         // canonical, editable English set.
-        $output = sprintf('<script src="%s"></script>', $this->langFilePath($this->resolveLocale())) . "\n";
+        $output = sprintf('<script src="%s"></script>', $this->langFilePath($this->resolveLocale()));
 
         foreach ($used as $item) {
             if (! is_string($item) || ! $plugins->get($item)) {
