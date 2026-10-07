@@ -58,8 +58,9 @@ class TwigExtension extends AbstractExtension
         // scripts below. Each plugin registers its own `translations.en`, which
         // deep-merges onto `ArticleEditor.lang.<code>`; loading the base language
         // first lets those merge in so the English fallback stays complete for
-        // every enabled plugin. English is included on purpose (langs/en.js is the
-        // canonical, editable English set).
+        // every enabled plugin. Exactly one file is loaded. When the locale resolves
+        // to English (including the fallback), that file is langs/en.js, the
+        // canonical, editable English set.
         $output = sprintf('<script src="%s"></script>', $this->langFilePath($this->resolveLocale())) . "\n";
 
         foreach ($used as $item) {
