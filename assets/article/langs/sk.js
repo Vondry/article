@@ -1,7 +1,7 @@
 /**
  * Slovak (sk) UI language for the Bolt Article editor.
  *
- * Loaded by Bolt\Article\TwigExtension::articleLangInclude before the plugin
+ * Loaded by Bolt\Article\TwigExtension::articleIncludes before the plugin
  * scripts. Keys left out fall back to English (see en.js) automatically.
  *
  * Structure mirrors en.js: the core editor UI first, then one clearly labelled

@@ -53,14 +53,15 @@ class TwigExtension extends AbstractExtension
         $used = $this->articleConfig->getConfig()['plugins'];
         $plugins = collect($this->articleConfig->getPlugins());
 
-        // The UI language file matching the resolved locale (see
-        // resolveLocale()) is emitted FIRST, before the plugin
-        // scripts below. Each plugin registers its own `translations.en`, which
-        // deep-merges onto `ArticleEditor.lang.<code>`; loading the base language
-        // first lets those merge in so the English fallback stays complete for
-        // every enabled plugin. Exactly one file is loaded. When the locale resolves
-        // to English (including the fallback), that file is langs/en.js, the
-        // canonical, editable English set.
+        // The UI language file for the resolved locale (see resolveLocale()) is
+        // emitted FIRST, before the plugin scripts below. Exactly one file is
+        // loaded. When the locale resolves to English (including the fallback),
+        // that file is langs/en.js, the canonical, editable English set. Language
+        // files assign their table outright, while each plugin deep-merges its own
+        // `translations.en` onto `ArticleEditor.lang.en`, so en.js has to come
+        // first or it would wipe those plugin strings. Other locales don't get the
+        // plugin strings merged in; a key they lack falls back to
+        // `ArticleEditor.lang.en`.
         $output = sprintf('<script src="%s"></script>', $this->langFilePath($this->resolveLocale()));
 
         foreach ($used as $item) {

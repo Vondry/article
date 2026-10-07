@@ -2,7 +2,7 @@
  * English UI language for the Bolt Article editor (Imperavi Article Editor).
  *
  * This is the canonical, editable English set. It is loaded (by
- * Bolt\Article\TwigExtension::articleLangInclude) before the plugin scripts, so
+ * Bolt\Article\TwigExtension::articleIncludes) before the plugin scripts, so
  * each plugin's own `translations.en` deep-merges on top of it. Copy this file to
  * `<code>.js` and translate the values to add a language; keys left out fall back
  * to English automatically.
