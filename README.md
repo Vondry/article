@@ -114,6 +114,8 @@ This is driven solely by the user's Bolt locale and is not overridable via
 `editor.lang`.
 
 To add a language, copy `assets/article/langs/en.js` to `assets/article/langs/<code>.js`
+(lowercase with an underscore, e.g. `pt_br.js` — it's matched against the Bolt locale
+case-insensitively, falling back to the bare language code, so `de.js` also serves `de_AT`)
 and translate the values (any key you leave out falls back to English). The file is
 loaded before the plugin scripts, so each plugin's own English strings deep-merge on
 top and remain available as fallbacks.

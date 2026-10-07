@@ -6,6 +6,7 @@ namespace Bolt\Article;
 
 use Bolt\Common\Json;
 use Symfony\Component\Filesystem\Path;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -13,6 +14,7 @@ class TwigExtension extends AbstractExtension
 {
     public function __construct(
         private readonly ArticleConfig $articleConfig,
+        private readonly RequestStack $requestStack,
         private readonly string $projectDir,
         private readonly string $publicFolder,
     ) {
@@ -34,6 +36,15 @@ class TwigExtension extends AbstractExtension
     {
         $settings = $this->articleConfig->getConfig();
 
+        // The editor UI language always follows the current Bolt backend locale
+        // (resolved per user by Bolt's LocaleSubscriber). It is intentionally not
+        // configurable — set last so any stray `editor.lang` in config can't freeze
+        // it. The matching langs/<code>.js is loaded by article_includes().
+        if (! isset($settings['editor']) || ! is_array($settings['editor'])) {
+            $settings['editor'] = [];
+        }
+        $settings['editor']['lang'] = $this->resolveLocale();
+
         return Json::json_encode($settings, JSON_HEX_QUOT | JSON_HEX_APOS);
     }
 
@@ -43,13 +54,18 @@ class TwigExtension extends AbstractExtension
         $plugins = collect($this->articleConfig->getPlugins());
 
         // The UI language file matching the resolved locale (see
-        // ArticleConfig::resolveLocale) is emitted FIRST, before the plugin
+        // resolveLocale()) is emitted FIRST, before the plugin
         // scripts below. Each plugin registers its own `translations.en`, which
         // deep-merges onto `ArticleEditor.lang.<code>`; loading the base language
         // first lets those merge in so the English fallback stays complete for
         // every enabled plugin. English is included on purpose (langs/en.js is the
-        // canonical, editable English set). Unsupported locales are skipped.
-        $output = $this->articleLangInclude();
+        // canonical, editable English set).
+        $output = '';
+        $locale = $this->resolveLocale();
+
+        if ($this->hasLangFile($locale)) {
+            $output .= sprintf('<script src="%s"></script>', $this->langFilePath($locale)) . "\n";
+        }
 
         foreach ($used as $item) {
             if (! is_string($item) || ! $plugins->get($item)) {
@@ -71,26 +87,47 @@ class TwigExtension extends AbstractExtension
     }
 
     /**
-     * A `<script>` tag for the Article UI language file matching the configured
-     * locale, or an empty string when we ship no translation for that locale (it
-     * then falls back to the editor's built-in English). English is included on
-     * purpose: langs/en.js is the canonical, editable English set.
+     * The locale to use for the editor UI. Uses the current request locale, which
+     * Bolt resolves per user in the backend (LocaleSubscriber sets it from the
+     * user's `_backend_locale`).
+     *
+     * Bolt locales look like `pt_BR` / `zh-CN`, while the shipped language files
+     * are lowercase with an underscore, e.g. `pt_br`. So the locale is normalized
+     * first, then matched exactly, then by its bare language code (`de_AT` -> `de`).
+     *
+     * Falls back to English when there is no request (e.g. CLI / cache warmup) or
+     * when we ship no matching langs/<code>.js. The fallback is essential: the
+     * editor does NOT fall back on its own — set `editor.lang` to a locale whose
+     * language table was never loaded and every toolbar label resolves to
+     * `undefined`, rendering an empty editor UI. Both article_settings() and
+     * article_includes() use this, so the two never disagree.
      */
-    private function articleLangInclude(): string
+    private function resolveLocale(): string
     {
-        $lang = $this->articleConfig->getConfig()['editor']['lang'] ?? 'en';
+        $locale = $this->requestStack->getCurrentRequest()?->getLocale() ?? '';
+        $locale = mb_strtolower(str_replace('-', '_', $locale));
 
-        if (! is_string($lang) || $lang === '') {
-            return '';
+        foreach ([$locale, mb_strstr($locale, '_', true)] as $candidate) {
+            if (is_string($candidate) && $this->hasLangFile($candidate)) {
+                return $candidate;
+            }
         }
 
-        $relative = sprintf('/assets/article/langs/%s.js', $lang);
-        $absolute = $this->projectDir . '/' . $this->publicFolder . $relative;
+        return 'en';
+    }
 
-        if (! is_file($absolute)) {
-            return '';
+    private function hasLangFile(string $locale): bool
+    {
+        // Only plain locale codes, so the request locale can never form an arbitrary path
+        if (! preg_match('/^[a-z]{2,3}(_[a-z0-9]+)?$/', $locale)) {
+            return false;
         }
 
-        return sprintf('<script src="%s"></script>', $relative) . "\n";
+        return is_file($this->projectDir . '/' . $this->publicFolder . $this->langFilePath($locale));
+    }
+
+    private function langFilePath(string $locale): string
+    {
+        return sprintf('/assets/article/langs/%s.js', $locale);
     }
 }
