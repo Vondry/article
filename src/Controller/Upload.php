@@ -70,7 +70,8 @@ class Upload implements AsyncZoneInterface
         ]);
 
         if ($type === 'image') {
-            $acceptedFileTypes = $this->config->getMediaTypes()->toArray();
+            $acceptedFileTypes = $this->config->getMediaTypes()
+                ->toArray();
             $filenamePrefix = '/thumbs/' . $this->articleConfig->getConfig()['image']['thumbnail'] . '/';
         } else {
             $acceptedFileTypes = array_merge($this->config->getMediaTypes()->toArray(), $this->config->getFileTypes()->toArray());

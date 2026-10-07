@@ -109,7 +109,8 @@ class Images implements AsyncZoneInterface
      */
     private function getFilesIndex(string $path, string $type): Collection
     {
-        $fileTypes = $this->config->getFileTypes()->toArray();
+        $fileTypes = $this->config->getFileTypes()
+            ->toArray();
         $glob = '*.{' . implode(',', $fileTypes) . '}';
 
         $files = [];
@@ -130,7 +131,10 @@ class Images implements AsyncZoneInterface
     private function findFiles(string $path, ?string $glob = null): Finder
     {
         $finder = new Finder();
-        $finder->in($path)->depth('< 3')->sortByType()->files();
+        $finder->in($path)
+            ->depth('< 3')
+            ->sortByType()
+            ->files();
 
         if ($glob) {
             $finder->name($glob);
