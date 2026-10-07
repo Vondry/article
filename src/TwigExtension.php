@@ -60,12 +60,7 @@ class TwigExtension extends AbstractExtension
         // first lets those merge in so the English fallback stays complete for
         // every enabled plugin. English is included on purpose (langs/en.js is the
         // canonical, editable English set).
-        $output = '';
-        $locale = $this->resolveLocale();
-
-        if ($this->hasLangFile($locale)) {
-            $output .= sprintf('<script src="%s"></script>', $this->langFilePath($locale)) . "\n";
-        }
+        $output = sprintf('<script src="%s"></script>', $this->langFilePath($this->resolveLocale())) . "\n";
 
         foreach ($used as $item) {
             if (! is_string($item) || ! $plugins->get($item)) {
@@ -99,8 +94,9 @@ class TwigExtension extends AbstractExtension
      * when we ship no matching langs/<code>.js. The fallback is essential: the
      * editor does NOT fall back on its own — set `editor.lang` to a locale whose
      * language table was never loaded and every toolbar label resolves to
-     * `undefined`, rendering an empty editor UI. Both article_settings() and
-     * article_includes() use this, so the two never disagree.
+     * `undefined`, rendering an empty editor UI. This is the only file existence
+     * check: the result always names a shipped file, so article_includes() can
+     * load it as is, and `editor.lang` in the settings names the table it loaded.
      */
     private function resolveLocale(): string
     {
